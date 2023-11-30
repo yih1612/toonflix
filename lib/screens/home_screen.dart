@@ -10,12 +10,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int totalSeconds = 1500;
+  int totalSeconds = 2;
+  bool isRunning = false;
+  int pomodoro = 0;
   late Timer timer;
 
   void onTick(Timer timer) {
     setState(() {
       totalSeconds = totalSeconds - 1;
+      //
+      if (totalSeconds == 0) {
+        totalSeconds = 2;
+        isRunning = false;
+        timer.cancel();
+        pomodoro += 1;
+      }
+      //
     });
   }
 
@@ -24,6 +34,16 @@ class _HomeScreenState extends State<HomeScreen> {
       const Duration(seconds: 1),
       onTick,
     );
+    setState(() {
+      isRunning = true;
+    });
+  }
+
+  void onPausePressed() {
+    timer.cancel();
+    setState(() {
+      isRunning = false;
+    });
   }
 
   @override
@@ -51,8 +71,10 @@ class _HomeScreenState extends State<HomeScreen> {
             child: IconButton(
               iconSize: 120,
               color: Theme.of(context).cardColor,
-              onPressed: onStartPressed,
-              icon: const Icon(Icons.play_circle_outline),
+              onPressed: isRunning ? onPausePressed : onStartPressed,
+              icon: Icon(isRunning
+                  ? Icons.pause_circle_outline
+                  : Icons.play_circle_outline),
             ),
           ),
         ),
@@ -82,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Text(
-                        '0',
+                        '$pomodoro',
                         style: TextStyle(
                           fontSize: 58,
                           fontWeight: FontWeight.w600,
