@@ -10,23 +10,25 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int totalSeconds = 2;
+  static const twentyFiveMinutes = 1500;
+  int totalSeconds = twentyFiveMinutes;
   bool isRunning = false;
-  int pomodoro = 0;
+  int totalPomodoros = 0;
   late Timer timer;
 
   void onTick(Timer timer) {
-    setState(() {
-      totalSeconds = totalSeconds - 1;
-      //
-      if (totalSeconds == 0) {
-        totalSeconds = 2;
+    if (totalSeconds == 0) {
+      setState(() {
+        totalPomodoros += 1;
         isRunning = false;
-        timer.cancel();
-        pomodoro += 1;
-      }
-      //
-    });
+        totalSeconds = twentyFiveMinutes;
+      });
+      timer.cancel();
+    } else {
+      setState(() {
+        totalSeconds = totalSeconds - 1;
+      });
+    }
   }
 
   void onStartPressed() {
@@ -46,6 +48,11 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  String format(int seconds) {
+    var duration = Duration(seconds: seconds);
+    return duration.toString().substring(2, 7);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Container(
             alignment: Alignment.bottomCenter,
             child: Text(
-              '$totalSeconds',
+              format(totalSeconds),
               style: TextStyle(
                 color: Theme.of(context).cardColor,
                 fontSize: 89,
@@ -95,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Pomodoros',
+                        'Pomodoross',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
@@ -104,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Text(
-                        '$pomodoro',
+                        '$totalPomodoros',
                         style: TextStyle(
                           fontSize: 58,
                           fontWeight: FontWeight.w600,
