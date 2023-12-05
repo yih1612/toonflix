@@ -17,7 +17,6 @@ class ApiService {
       final List<dynamic> webtoons = jsonDecode(response.body);
       for (var webtoon in webtoons) {
         webtoonInstances.add(WebtoonModel.fromJson(webtoon));
-        print(webtoon);
       }
       return webtoonInstances;
     }
