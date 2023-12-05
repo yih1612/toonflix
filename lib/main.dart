@@ -14,7 +14,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'NEXON_Lv2_Gothic',
       ),
-      home: const HomeScreen(),
+      home: HomeScreen(),
     );
   }
 }
