@@ -20,8 +20,8 @@
 
 ## 3. Today's toon
 
-☑️ 설명 더보기
-☑️ 관심 웹툰만 보기
+☑️ 설명 더보기  
+☑️ 관심 웹툰만 보기  
 ☑️ 봤으면 음영처리 해주기  
 ☑️ 홈 화면 3줄로 세로로 스크롤
 
@@ -29,7 +29,7 @@
 
 🔍 기능
 
-1. Home
+1. Home  
    <img width="20%" src="https://github.com/yih1612/toonflix/assets/70312216/2032fc91-32df-440c-905e-003b18bd75d7"/>
 
 2. See webtoon  
