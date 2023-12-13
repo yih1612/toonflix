@@ -13,4 +13,4 @@
    <img width="20%" src="https://github.com/yih1612/toonflix/assets/70312216/122a33fb-b593-4f02-a6f8-39003ebafc5c"/>
 
 2. Reset  
-   <img width="20%" src="https://github.com/yih1612/toonflix/assets/70312216/122a33fb-b593-4f02-a6f8-39003ebafc5c"/>
+   <img width="20%" src="https://github.com/yih1612/toonflix/assets/70312216/147718d5-730a-4974-8dc2-177feeffc7d3"/>
