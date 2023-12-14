@@ -28,14 +28,14 @@ class Webtoon extends StatelessWidget {
         );
       },
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Hero(
             tag: id,
             child: Container(
-              width: 250,
               clipBehavior: Clip.hardEdge,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(5),
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 15,
@@ -52,13 +52,13 @@ class Webtoon extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 10,
+            height: 5,
           ),
           Text(
             title,
-            style: const TextStyle(
-              fontSize: 22,
-            ),
+            style: const TextStyle(fontSize: 18, overflow: TextOverflow.ellipsis
+                // fontWeight: FontWeight.w400,
+                ),
           ),
         ],
       ),
