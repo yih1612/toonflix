@@ -52,7 +52,6 @@ class HomeScreen extends StatelessWidget {
       ),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        // mainAxisSpacing: ,
         crossAxisSpacing: 10,
         childAspectRatio: 3 / 5,
       ),
@@ -65,6 +64,7 @@ class HomeScreen extends StatelessWidget {
           )
       ],
     );
+    // 가로 방향으로 웹툰 보여주기
     // return ListView.separated(
     //   scrollDirection: Axis.horizontal,
     //   itemCount: snapshot.data!.length,
