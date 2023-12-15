@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:toonflix/models/webtoon_model.dart';
 import 'package:toonflix/services/api_service.dart';
 import 'package:toonflix/widgets/webtoon_widget.dart';
@@ -28,8 +29,32 @@ class HomeScreen extends StatelessWidget {
         future: webtoons,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
+            // 웹툰 배너
+            // var bannerList = [];
+            // for (int i = 0; i < 5; i++) {
+            //   var randomIndex = Random().nextInt(snapshot.data!.length);
+            //   bannerList.add(snapshot.data![randomIndex]);
+            // }
             return Column(
               children: [
+                // SliderWidget(bannerList: bannerList),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    children: [
+                      Text(
+                        DateFormat('EEEE', 'ko').format(DateTime.now()),
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 Expanded(
                   child: makeList(snapshot),
                 ),

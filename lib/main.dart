@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:toonflix/screens/home_screen.dart';
 
 void main() {
@@ -14,6 +15,14 @@ class App extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'NEXON_Lv2_Gothic',
       ),
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('ko', 'KR'),
+      ],
       home: HomeScreen(),
     );
   }
